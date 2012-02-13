@@ -4,7 +4,7 @@ package cactus.instructions;
  * Abstract class for all instructions
  * 
  */
-public abstract class instruction {
+public abstract class Instruction {
     
     
     /**
