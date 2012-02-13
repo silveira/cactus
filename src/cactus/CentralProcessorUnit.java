@@ -5,6 +5,11 @@ package cactus;
  * takes place.
  */
 public class CentralProcessorUnit implements Unit {
+    /**
+     * Number of General Purpose Registers in the CPU
+     */
+    public static final int NREGISTERS = 4;
+    
     /* Units */
     
     /**
@@ -13,17 +18,11 @@ public class CentralProcessorUnit implements Unit {
     private ControlUnit cu;
     
     /**
-     * CPU's Memory Unit (MU)
-     */
-    private MemoryUnit mu;
-    
-    /**
      * CPU's Arithmetic Logic Unit (ALU)
      */
     private ArithmeticLogicUnit alu;
     
-    /* Register */
-    // TODO: Add GPR's, decide whether vector or several variables
+    /* Registers */
     
     /**
      * Program Counter (PC)
@@ -34,6 +33,26 @@ public class CentralProcessorUnit implements Unit {
      * Instruction Register (IR)
      */
     private Register16 ir;
+
+    /**
+     * Memory Buffer Register (MBR)
+     */
+    private Register16 mbr;
+    
+    /**
+     * Memory Address Register (MAR)
+     */
+    private Register16 mar;
+
+    /**
+     * Memory Status Register (MSR)
+     */
+    private Register16 msr;
+
+    /**
+     * Memory Fault Register (MFR)
+     */
+    private Register4 mfr;
     
     /**
      * Index Register (X0)
@@ -44,5 +63,33 @@ public class CentralProcessorUnit implements Unit {
      * Condition Code Register (CC)
      */
     private Register4 cc;
+    
+    /**
+     * General Purpose Register File (GPR)
+     */
+    private Register16[] gpr;
+    
+    /**
+     * Constructor
+     */
+    public CentralProcessorUnit() {
+        // Instantiate Units
+        this.cu = new ControlUnit(this);
+        this.alu = new ArithmeticLogicUnit();
+        
+        // Instantiate GPR File
+        this.gpr = new Register16[NREGISTERS];
+        
+        // Instatiate 4-bit Registers
+        this.cc = new Register4();
+        this.mfr = new Register4();
+        
+        // Instatiate 16-bit Registers
+        this.pc = new Register16();
+        this.ir = new Register16();
+        this.mar = new Register16();
+        this.mbr = new Register16();
+        this.msr = new Register16();
+        this.x0 = new Register16();
+    }
 }
- 

@@ -6,9 +6,13 @@ package cactus;
  */
 public class Computer {
     /**
-     * Represents the Central Processor Unit (CPU) of the Computer
+     * Represents the Central Processor Unit (CPU)
      */
     private CentralProcessorUnit cpu; 
+    /**
+     * Represents Memory Management Unit (MU)
+     */
+    private MemoryManagementUnit mmu;
     /**
      * Main memory of the computer, where programs and data are stored.
      */
