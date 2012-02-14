@@ -9,11 +9,11 @@ public class LDR extends Instruction{
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "LDR";
+    private final String assemblyCode = "LDR";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "000001";
+    private final String opcode = "000001";
     
 }

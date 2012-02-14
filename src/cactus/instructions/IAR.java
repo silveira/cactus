@@ -9,11 +9,11 @@ public class IAR {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "IAR";
+    private final String assemblyCode = "IAR";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "000110";
+    private final String opcode = "000110";
     
 }

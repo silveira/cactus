@@ -9,11 +9,11 @@ public class ISR {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "ISR";
+    private final String assemblyCode = "ISR";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "000111";
+    private final String opcode = "000111";
     
 }

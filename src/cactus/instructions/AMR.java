@@ -9,11 +9,11 @@ public class AMR {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "AMR";
+    private final String assemblyCode = "AMR";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "000100";
+    private final String opcode = "000100";
     
 }

@@ -9,11 +9,11 @@ public class TST {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "TST";
+    private final String assemblyCode = "TST";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "010010";
+    private final String opcode = "010010";
     
 }

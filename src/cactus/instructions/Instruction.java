@@ -13,9 +13,9 @@ public abstract class Instruction {
     private String assemblyCode;
 
     /**
-     * Instruction Binary Opcode
+     * Instruction Opcode
      */
-    private String binaryOpcode;
+    private String opcode;
     
     /**
      * Method to return the value of assemblyCode
@@ -27,31 +27,12 @@ public abstract class Instruction {
     }
 
     /**
-     * Method to return the value of binaryOpcode
+     * Method to return the value of opcode
      * 
      * @return String 
      */
-    public String getBinaryOpcode() {
-        return binaryOpcode;
+    public String getOpcode() {
+        return opcode;
     }
 
-    /**
-     * Method to set the value of assemblyCode
-     * 
-     * @param assemblyCode 
-     */
-    public void setAssemblyCode(String assemblyCode) {
-        this.assemblyCode = assemblyCode;
-    }
-
-    /**
-     * Method to set the value of assemblyCode
-     * 
-     * @param binaryOpcode  
-     */
-    public void setBinaryOpcode(String binaryOpcode) {
-        this.binaryOpcode = binaryOpcode;
-    }
-    
-    
 }

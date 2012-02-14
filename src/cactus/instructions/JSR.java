@@ -9,11 +9,11 @@ public class JSR {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "JSR";
+    private final String assemblyCode = "JSR";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "001100";
+    private final String opcode = "001100";
     
 }
