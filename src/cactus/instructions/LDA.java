@@ -6,4 +6,14 @@ package cactus.instructions;
  */
 public class LDA extends Instruction{
     
+    /**
+     * Instruction Assembly Code
+     */
+    private String assemblyCode = "LDA";
+
+    /**
+     * Instruction Binary Opcode
+     */
+    private String opcode = "000011";
+    
 }

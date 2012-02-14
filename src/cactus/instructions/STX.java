@@ -6,4 +6,14 @@ package cactus.instructions;
  */
 public class STX extends Instruction{
     
+    /**
+     * Instruction Assembly Code
+     */
+    private String assemblyCode = "STR";
+
+    /**
+     * Instruction Binary Opcode
+     */
+    private String opcode = "100010";
+    
 }
