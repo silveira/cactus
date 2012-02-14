@@ -9,11 +9,11 @@ public class RFS {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "RFS";
+    private static final String assemblyCode = "RFS";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "001101";
+    private static final String opcode = "001101";
     
 }

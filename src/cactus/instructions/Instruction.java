@@ -10,19 +10,19 @@ public abstract class Instruction {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode;
+    private static String assemblyCode;
 
     /**
      * Instruction Opcode
      */
-    private String opcode;
+    private static String opcode;
     
     /**
      * Method to return the value of assemblyCode
      * 
      * @return String 
      */
-    public String getAssemblyCode() {
+    public static String getAssemblyCode() {
         return assemblyCode;
     }
 
@@ -31,7 +31,7 @@ public abstract class Instruction {
      * 
      * @return String 
      */
-    public String getOpcode() {
+    public static String getOpcode() {
         return opcode;
     }
 

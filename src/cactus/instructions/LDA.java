@@ -9,11 +9,11 @@ public class LDA extends Instruction{
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "LDA";
+    private static final String assemblyCode = "LDA";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "000011";
+    private static final String opcode = "000011";
     
 }

@@ -9,11 +9,11 @@ public class AND {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "AND";
+    private static final String assemblyCode = "AND";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "010011";
+    private static final String opcode = "010011";
     
 }

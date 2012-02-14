@@ -9,11 +9,11 @@ public class SOB {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "SOB";
+    private static final String assemblyCode = "SOB";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "001110";
+    private static final String opcode = "001110";
     
 }

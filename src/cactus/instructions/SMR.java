@@ -9,11 +9,11 @@ public class SMR {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "SMR";
+    private static final String assemblyCode = "SMR";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "000101";
+    private static final String opcode = "000101";
     
 }

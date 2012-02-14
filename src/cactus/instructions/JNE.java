@@ -9,11 +9,11 @@ public class JNE {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "JNE";
+    private static final String assemblyCode = "JNE";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "001001";
+    private static final String opcode = "001001";
     
 }

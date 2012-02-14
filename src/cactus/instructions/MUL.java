@@ -9,11 +9,11 @@ public class MUL {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "MUL";
+    private static final String assemblyCode = "MUL";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "010000";
+    private static final String opcode = "010000";
     
 }
