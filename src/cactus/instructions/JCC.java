@@ -9,11 +9,11 @@ public class JCC {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "JCC";
+    private final String assemblyCode = "JCC";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "001010";
+    private final String opcode = "001010";
     
 }

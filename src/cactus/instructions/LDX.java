@@ -9,11 +9,11 @@ public class LDX extends Instruction{
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "LDX";
+    private final String assemblyCode = "LDX";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "100001";
+    private final String opcode = "100001";
     
 }

@@ -9,11 +9,11 @@ public class NOT {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "NOT";
+    private final String assemblyCode = "NOT";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "010101";
+    private final String opcode = "010101";
     
 }

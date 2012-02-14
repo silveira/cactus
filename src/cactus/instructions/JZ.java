@@ -9,11 +9,11 @@ public class JZ {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "JZ";
+    private final String assemblyCode = "JZ";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "001000";
+    private final String opcode = "001000";
     
 }

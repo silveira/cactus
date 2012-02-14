@@ -9,11 +9,11 @@ public class SRC {
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "SRC";
+    private final String assemblyCode = "SRC";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "011001";
+    private final String opcode = "011001";
     
 }

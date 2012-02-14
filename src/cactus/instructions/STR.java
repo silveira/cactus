@@ -9,11 +9,11 @@ public class STR extends Instruction{
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "STR";
+    private final String assemblyCode = "STR";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "000010";
+    private final String opcode = "000010";
     
 }

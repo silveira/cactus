@@ -9,11 +9,11 @@ public class STX extends Instruction{
     /**
      * Instruction Assembly Code
      */
-    private String assemblyCode = "STR";
+    private final String assemblyCode = "STR";
 
     /**
      * Instruction Binary Opcode
      */
-    private String opcode = "100010";
+    private final String opcode = "100010";
     
 }
