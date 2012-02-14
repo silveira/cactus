@@ -9,11 +9,11 @@ public class JMP {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "JMP";
+    private static final String assemblyCode = "JMP";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "001011";
+    private static final String opcode = "001011";
     
 }

@@ -9,11 +9,11 @@ public class OR {
     /**
      * Instruction Assembly Code
      */
-    private final String assemblyCode = "OR";
+    private static final String assemblyCode = "OR";
 
     /**
      * Instruction Binary Opcode
      */
-    private final String opcode = "010100";
+    private static final String opcode = "010100";
     
 }
