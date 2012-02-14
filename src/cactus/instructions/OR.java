@@ -4,7 +4,7 @@ package cactus.instructions;
  * Instruction to Logical Or of Register and Register
  * 
  */
-public class OR {
+public class OR extends Instruction {
     
     /**
      * Instruction Assembly Code
@@ -16,4 +16,19 @@ public class OR {
      */
     private static final String opcode = "010100";
     
+    /**
+     * Method to return the assembly code of the instruction
+     * @return 
+     */
+    public static String getAssemblyCode() {
+        return assemblyCode;
+    }
+    
+    /**
+     * Method to return the value of opcode
+     * @return Opcode in binary string
+     */
+    public static String getOpcode() {
+       return opcode; 
+    }
 }

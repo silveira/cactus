@@ -4,7 +4,7 @@ package cactus.instructions;
  * Instruction to Subtract Memory From Register
  * 
  */
-public class SMR {
+public class SMR extends Instruction {
     
     /**
      * Instruction Assembly Code
@@ -16,4 +16,19 @@ public class SMR {
      */
     private static final String opcode = "000101";
     
+    /**
+     * Method to return the assembly code of the instruction
+     * @return 
+     */
+    public static String getAssemblyCode() {
+        return assemblyCode;
+    }
+    
+    /**
+     * Method to return the value of opcode
+     * @return Opcode in binary string
+     */
+    public static String getOpcode() {
+       return opcode; 
+    }
 }
