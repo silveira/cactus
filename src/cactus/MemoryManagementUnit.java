@@ -1,7 +1,13 @@
 package cactus;
 
 public class MemoryManagementUnit implements Unit {
-    
+
+    // 16-bit words/2 8-bit bytes
+    // Memory of 16,384 words/32,768 bytes
+    // Byte addressable
+    // TODO write MAR register handle
+    // TODO write MBR register handle
+
     private CentralProcessorUnit cpu;
 
     /**
