@@ -17,5 +17,13 @@ public class Computer {
      * Main memory of the computer, where programs and data are stored.
      */
     private Memory memory;
+    
+    /**
+     * Set the program code into the memory
+     */
+    public void setProgram(String program) {
+        
+    }
+    
 }
  
