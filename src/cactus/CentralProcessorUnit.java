@@ -38,7 +38,7 @@ public class CentralProcessorUnit implements Unit {
      * Memory Buffer Register (MBR)
      */
     private Register16 mbr;
-    
+
     /**
      * Memory Address Register (MAR)
      */
@@ -91,5 +91,54 @@ public class CentralProcessorUnit implements Unit {
         this.mbr = new Register16();
         this.msr = new Register16();
         this.x0 = new Register16();
+    }
+    
+    public Register16 getRegister(int index) {
+        return gpr[index];
+    }
+    
+    public Register16 getMar() {
+        return mar;
+    }
+
+    public Register16 getMbr() {
+        return mbr;
+    }
+
+    public Register16 getPc() {
+        return pc;
+    }
+
+    public Register16 getX0() {
+        return x0;
+    }
+
+    public Register16 getIr() {
+        return ir;
+    }
+
+    public void setMar(Register16 mar) {
+        this.mar = mar;
+    }
+
+    public void setMbr(Register16 mbr) {
+        this.mbr = mbr;
+    }
+
+    public void setPc(Register16 pc) {
+        this.pc = pc;
+    }
+
+    public void setIr(Register16 ir) {
+        this.ir = ir;
+    }
+    
+    /**
+     * This method increments the PC Register
+     */
+    public void incrementPC(){
+        
+        this.pc.setContent(Integer.toBinaryString(Integer.parseInt(this.pc.getContent()) + 1));
+        
     }
 }

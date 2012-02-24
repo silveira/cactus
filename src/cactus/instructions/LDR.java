@@ -1,5 +1,8 @@
 package cactus.instructions;
 
+import cactus.CentralProcessorUnit;
+import cactus.MemoryManagementUnit;
+
 /**
  * Instruction to Load Register From Memory
  * 
@@ -30,5 +33,33 @@ public class LDR extends Instruction{
      */
     public static String getOpcode() {
        return opcode; 
+    }
+    
+    /**
+     * Execute the instruction
+     * @param cpu instance of CentralProcessorUnit to this instruction have access to registers
+     */
+    public void execute(CentralProcessorUnit cpu){
+        MemoryManagementUnit mmu = new MemoryManagementUnit();
+        //Set the CPU into the memory instance to give to the memory access to registers
+        mmu.setCpu(cpu);
+        
+        //Get the register number of the Instruction Register
+        int ac = Integer.parseInt(cpu.getIr().getContent().substring(8, 9), 2);
+        int i = Integer.parseInt(cpu.getIr().getContent().substring(6));
+        int ix = Integer.parseInt(cpu.getIr().getContent().substring(7));
+        
+        //Get the efective address of the Instruction Register
+        String add = mmu.calculateEffectiveAddress(cpu.getIr().getContent().substring(10, 15), i, ix);
+        
+        //Set MAR register with the address from instruction
+        cpu.getMar().setContent(add);        
+        
+        //Get the content from MBR and set into the register
+        cpu.getRegister(ac).setContent(cpu.getMbr().getContent());
+        
+        //Increment PC
+        cpu.incrementPC();
+        
     }
 }
