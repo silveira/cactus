@@ -55,6 +55,8 @@ public class LDR extends Instruction{
         //Set MAR register with the address from instruction
         cpu.getMar().setContent(add);        
         
+        mmu.getMemoryContent();
+        
         //Get the content from MBR and set into the register
         cpu.getRegister(ac).setContent(cpu.getMbr().getContent());
         
