@@ -82,18 +82,14 @@ public class MemoryManagementUnit implements Unit {
         
         if(indexing == 1){            
             //Get memory content of the sum of add an X0 register
-            ea =  Integer.toBinaryString(
-                    Integer.parseInt(this.cpu.getX0().getContent(),2) //X0
-                        + 
-                    Integer.parseInt(add,2) //Add
-                    );   
+            ea =  this.cpu.getX0().getString() + add;
         }
         
         //Get the value of the sum of X0 with Address
         if(indirectAddress == 1){
-            this.cpu.getMar().setContent(ea);
+            this.cpu.getMar().set(ea);
             this.getMemory();
-            ea = this.cpu.getMbr().getContent();
+            ea = this.cpu.getMbr().getString();
         }
         
         return ea;

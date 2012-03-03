@@ -137,8 +137,6 @@ public class CentralProcessorUnit implements Unit {
      * This method increments the PC Register
      */
     public void incrementPC(){
-        
-        this.pc.setContent(Integer.toBinaryString(Integer.parseInt(this.pc.getContent()) + 1));
-        
+        this.pc.set(this.pc.getInt()+1);
     }
 }
