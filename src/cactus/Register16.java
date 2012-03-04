@@ -1,8 +1,6 @@
 package cactus;
 
 import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
 
 public class Register16 extends Register {
     
@@ -58,8 +56,8 @@ public class Register16 extends Register {
      * @return int
      */
     @Override
-    public String getInt(int from, int length) {
-        return this.getString().substring(from, from+length);
+    public int getInt(int from, int length) {
+        return Integer.parseInt(this.getString().substring(from, from+length));
     }
   
     /*************************************************
@@ -83,11 +81,11 @@ public class Register16 extends Register {
     }
     
     /**
-     * Set the value of register
-     * @param String value
+     * Set the value of register from a string value
+     * @param String value 
      */
     public void set(String value){
-        this.value = value.getBytes();
+        this.value = new BigInteger(value).toByteArray();
     }
     
 }

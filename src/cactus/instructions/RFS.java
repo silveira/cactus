@@ -1,7 +1,6 @@
 package cactus.instructions;
 
-import cactus.CentralProcessorUnit;
-import cactus.MemoryManagementUnit;
+import cactus.Computer;
 
 /**
  * Instruction to Return From Subroutine w/ return code in Immed portion (optional) stored in R0
@@ -37,32 +36,29 @@ public class RFS extends Instruction {
     
     /**
      * Execute the instruction
-     * @param cpu instance of CentralProcessorUnit to this instruction have access to registers
+     * @param Computer comp : instance of Computer to this instruction have access to cpu and memory
      */
-    public void execute(CentralProcessorUnit cpu){
-        MemoryManagementUnit mmu = new MemoryManagementUnit();
-        //Set the CPU into the memory instance to give to the memory access to registers
-        mmu.setCpu(cpu);
+    public void execute(Computer comp){
         
-        //Get the register number of the Instruction Register
-        int ac = Integer.parseInt(cpu.getIr().getContent().substring(8, 9), 2);
-        int i = Integer.parseInt(cpu.getIr().getContent().substring(6));
-        int ix = Integer.parseInt(cpu.getIr().getContent().substring(7));
+        //Get the number of the Instruction Register
+        int ac = comp.getCpu().getIr().getInt(8, 2);
+        //Get the indirect addressing bit
+        int i = comp.getCpu().getIr().getInt(6,1);
+        //Get the indexing bit
+        int ix = comp.getCpu().getIr().getInt(7,1);
         
         //Get the efective address of the Instruction Register
-        String add = mmu.calculateEffectiveAddress(cpu.getIr().getContent().substring(10, 15), i, ix);
+        String addr = comp.getMmu().calculateEffectiveAddress(comp.getCpu().getIr().getString(10, 5), i, ix);
         
-        //Set the Immediate portion into Register R0
-        cpu.getRegister(0).setContent(add);
+        //Save the immediate into the R0
+        comp.getCpu().getRegister(0).set(addr);
         
-        //Get the content of Register R3
-        cpu.getMar().setContent(cpu.getRegister(3).getContent());
+        //Put the R3 content into the PC
+        comp.getCpu().getMar().set(comp.getCpu().getRegister(3).get());
         
-        mmu.getMemoryContent();
+        comp.getMmu().read();
         
-        //Set the content of R3 into PC
-        cpu.getPc().setContent(cpu.getMbr().getContent());
-        
+        comp.getCpu().getPc().set(comp.getCpu().getMbr().get());
     }
     
 }

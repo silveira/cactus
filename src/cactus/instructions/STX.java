@@ -1,6 +1,7 @@
 package cactus.instructions;
 
 import cactus.CentralProcessorUnit;
+import cactus.Computer;
 import cactus.MemoryManagementUnit;
 
 /**
@@ -37,21 +38,26 @@ public class STX extends Instruction{
     
     /**
      * Execute the instruction
-     * @param cpu instance of CentralProcessorUnit to this instruction have access to registers
+     * @param Computer comp : instance of Computer to this instruction have access to cpu and memory
      */
-    public void execute(CentralProcessorUnit cpu){
-        MemoryManagementUnit mmu = new MemoryManagementUnit();
-        //Set the CPU into the memory instance to give to the memory access to registers
-        mmu.setCpu(cpu);
+    public void execute(Computer comp){
+        
+        //Get the number of the Instruction Register
+        int ac = comp.getCpu().getIr().getInt(8, 2);
+        //Get the indirect addressing bit
+        int i = comp.getCpu().getIr().getInt(6,1);
+        //Get the indexing bit
+        int ix = comp.getCpu().getIr().getInt(7,1);
+        
+        //Get the efective address of the Instruction Register
+        String addr = comp.getMmu().calculateEffectiveAddress(comp.getCpu().getIr().getString(10, 5), i, ix);
         
         //Set the content of MBR with the value of Register X0
-        cpu.getMbr().setContent(cpu.getX0().getContent());
+        comp.getCpu().getMbr().set(comp.getCpu().getX0().get());
+        
+        comp.getCpu().getMar().set(addr);
         
         //Insert into the memory
-        mmu.insertMemoryContent();
-        
-        //Increment PC
-        cpu.incrementPC();
-        
+        comp.getMmu().store();
     }
 }

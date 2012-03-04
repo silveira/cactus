@@ -24,6 +24,30 @@ public class Computer {
     public void setProgram(String program) {
         
     }
+
+    public CentralProcessorUnit getCpu() {
+        return cpu;
+    }
+
+    public void setCpu(CentralProcessorUnit cpu) {
+        this.cpu = cpu;
+    }
+
+    public Memory getMemory() {
+        return memory;
+    }
+
+    public void setMemory(Memory memory) {
+        this.memory = memory;
+    }
+
+    public MemoryManagementUnit getMmu() {
+        return mmu;
+    }
+
+    public void setMmu(MemoryManagementUnit mmu) {
+        this.mmu = mmu;
+    }    
     
 }
  

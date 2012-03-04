@@ -52,23 +52,21 @@ public class MemoryManagementUnit implements Unit {
     }    
     
     /**
-     * Get the content of MAR from memory
+     * Read the content of MAR from memory and put into MBR
      * 
-     * @return String
      */
-    public String getMemoryContent(){
+    public void read(){
         //TODO Create the method to get content from memory (MAR) and put it into MBR
         //Esse método poderia ser VOID
-        return null;
     }
     
     /**
-     * This method put the content of MBR into the memory
+     * Store the content of MBR into the memory
      */
-    public void insertMemoryContent(){
-        //TODO pegar o valor da MBR e colocar no endereço da MAR
-        
+    public void store(){
+        //TODO
     }
+
     
     /**
      * This method calculates the effective address of an instruction
@@ -77,12 +75,12 @@ public class MemoryManagementUnit implements Unit {
      * @param indexing bit that indicates if the address is indexed or not
      * @return effective address calculated
      */
-    public String calculateEffectiveAddress(String add, int indirectAddress, int indexing){
-        String ea = add;
+    public String calculateEffectiveAddress(String addr, int indirectAddress, int indexing){
+        String ea = addr;
         
         if(indexing == 1){            
             //Get memory content of the sum of add an X0 register
-            ea =  this.cpu.getX0().getString() + add;
+            ea =  this.cpu.getX0().getString() + addr;
         }
         
         //Get the value of the sum of X0 with Address

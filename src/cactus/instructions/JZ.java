@@ -1,7 +1,6 @@
 package cactus.instructions;
 
-import cactus.CentralProcessorUnit;
-import cactus.MemoryManagementUnit;
+import cactus.Computer;
 
 /**
  * Instruction to Jump If Zero
@@ -37,27 +36,29 @@ public class JZ extends Instruction {
     
     /**
      * Execute the instruction
-     * @param cpu instance of CentralProcessorUnit to this instruction have access to registers
+     * @param Computer comp : instance of Computer to this instruction have access to cpu and memory
      */
-    public void execute(CentralProcessorUnit cpu){
-        MemoryManagementUnit mmu = new MemoryManagementUnit();
-        //Set the CPU into the memory instance to give to the memory access to registers
-        mmu.setCpu(cpu);
+    public void execute(Computer comp){
         
-        //Get the register number of the Instruction Register
-        int ac = Integer.parseInt(cpu.getIr().getContent().substring(8, 9), 2);
-        int i = Integer.parseInt(cpu.getIr().getContent().substring(6));
-        int ix = Integer.parseInt(cpu.getIr().getContent().substring(7));
-        
+        //Get the number of the Instruction Register
+        int ac = comp.getCpu().getIr().getInt(8, 2);
+        //Get the indirect addressing bit
+        int i = comp.getCpu().getIr().getInt(6,1);
+        //Get the indexing bit
+        int ix = comp.getCpu().getIr().getInt(7,1);
         
         //Get the efective address of the Instruction Register
-        String add = mmu.calculateEffectiveAddress(cpu.getIr().getContent().substring(10, 15), i, ix);
+        String addr = comp.getMmu().calculateEffectiveAddress(comp.getCpu().getIr().getString(10, 5), i, ix);
         
-        if( Integer.parseInt(cpu.getRegister(ac).getContent(),2) == 0){
-            cpu.getPc().setContent(add);
+        //Set MAR register with the address from instruction
+        comp.getCpu().getMar().set(addr);
+        
+        comp.getMmu().read();
+        
+        if(comp.getCpu().getMbr().getInt() == 0){
+            comp.getCpu().getPc().set(addr);
         }else{
-            cpu.incrementPC();
+            comp.getCpu().incrementPC();
         }
-        
     }
 }

@@ -1,7 +1,6 @@
 package cactus.instructions;
 
-import cactus.CentralProcessorUnit;
-import cactus.MemoryManagementUnit;
+import cactus.Computer;
 
 /**
  * Instruction to Immediate Subtract  from Register
@@ -28,46 +27,34 @@ public class ISR extends Instruction {
     }
     
     /**
-     * Method to return the value of opcode
-     * @return Opcode in binary string
-     */
-    public static String getOpcode() {
-       return opcode; 
-    }
-    
-    /**
      * Execute the instruction
-     * @param cpu instance of CentralProcessorUnit to this instruction have access to registers
+     * @param Computer comp : instance of Computer to this instruction have access to cpu and memory
      */
-    public void execute(CentralProcessorUnit cpu){
-        MemoryManagementUnit mmu = new MemoryManagementUnit();
-        //Set the CPU into the memory instance to give to the memory access to registers
-        mmu.setCpu(cpu);
+    public void execute(Computer comp){
         
-        //Get the register number of the Instruction Register
-        int ac = Integer.parseInt(cpu.getIr().getContent().substring(8, 9), 2);
-        int i = Integer.parseInt(cpu.getIr().getContent().substring(6));
-        int ix = Integer.parseInt(cpu.getIr().getContent().substring(7));
+        
+        //Get the number of the Instruction Register
+        int ac = comp.getCpu().getIr().getInt(8, 2);
+        //Get the indirect addressing bit
+        int i = comp.getCpu().getIr().getInt(6,1);
+        //Get the indexing bit
+        int ix = comp.getCpu().getIr().getInt(7,1);
         
         //Get the efective address of the Instruction Register
-        String add = mmu.calculateEffectiveAddress(cpu.getIr().getContent().substring(10, 15), i, ix);
+        String addr = comp.getMmu().calculateEffectiveAddress(comp.getCpu().getIr().getString(10, 5), i, ix);
         
-        if(Integer.parseInt(add,2) != 0){
-            
-            if(Integer.parseInt(cpu.getRegister(ac).getContent(),2) == 0){
-                cpu.getRegister(ac).setContent(
-                            Integer.toBinaryString(
-                                Integer.parseInt(add,2)*(-1)
-                            )
-                        );
-            }else{
-                cpu.getRegister(ac).setContent(
-                            Integer.toBinaryString(
-                                Integer.parseInt(cpu.getRegister(ac).getContent(),2) - Integer.parseInt(add,2)
-                            )
-                        );
-            }
-        }
+        //Set MAR register with the address from instruction
+        comp.getCpu().getMar().set(addr);
+        
+        comp.getMmu().read();
+        
+        //Get the content from MBR and sum with register AC content and put the result into register AC
+        comp.getCpu().getAlu().getOp1().set(comp.getCpu().getRegister(ac).get());
+        comp.getCpu().getAlu().getOp2().set(addr);
+        
+        comp.getCpu().getAlu().addImmed();
+        
+        comp.getCpu().getRegister(ac).set(comp.getCpu().getAlu().getResult().get());
     }
     
 }

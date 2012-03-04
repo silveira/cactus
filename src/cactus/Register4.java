@@ -8,7 +8,7 @@ public class Register4 extends Register {
     }
 
     @Override
-    String getInt(int from, int length) {
+    int getInt(int from, int length) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
  

@@ -116,18 +116,22 @@ public class CentralProcessorUnit implements Unit {
     public Register16 getIr() {
         return ir;
     }
-
-    public void setMar(Register16 mar) {
+    
+    public ArithmeticLogicUnit getAlu(){
+        return this.alu;
+    } 
+    
+    /*public void setMar(Register16 mar) {
         this.mar = mar;
-    }
+    }*/
 
     public void setMbr(Register16 mbr) {
         this.mbr = mbr;
     }
 
-    public void setPc(Register16 pc) {
+    /*public void setPc(Register16 pc) {
         this.pc = pc;
-    }
+    }*/
 
     public void setIr(Register16 ir) {
         this.ir = ir;
