@@ -26,20 +26,5 @@ public class Memory {
     public byte[] getWord (int address) {
         return new byte[]{this.getByte(address), this.getByte(address+1)};
     }
-   
-    
-    public void show(){
-        System.out.println("Address  |  Binary  |  Hexadecimal  |   Decimal");
-        for(int i=0; i< 20; i++){
-            System.out.print(i);
-            System.out.print("\t\t");
-            System.out.print(Integer.toBinaryString(i));
-            System.out.print("\t\t");
-            System.out.print(Integer.toHexString(i));
-            System.out.print("\t\t");
-            System.out.print(i);
-            System.out.println();
-        }
-    }
 }
  
