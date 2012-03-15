@@ -18,6 +18,16 @@ public class Memory {
         return this.data[address];
     }
     
+    public void setWord(int address, byte leftValue, byte rightValue) {
+        this.setByte(address, leftValue);
+        this.setByte(address+1, rightValue);
+    }
+    
+    public byte[] getWord (int address) {
+        return new byte[]{this.getByte(address), this.getByte(address+1)};
+    }
+   
+    
     public void show(){
         System.out.println("Address  |  Binary  |  Hexadecimal  |   Decimal");
         for(int i=0; i< 20; i++){
